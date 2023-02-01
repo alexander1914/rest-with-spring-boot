@@ -1,4 +1,4 @@
-package br.com.udemy;
+package br.com.udemy.controllers;
 
 public class Greeting {
     private final long id;
