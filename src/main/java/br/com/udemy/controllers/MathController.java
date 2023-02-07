@@ -1,6 +1,6 @@
 package br.com.udemy.controllers;
 
-import br.com.udemy.exceptions.UnsupportedMatchOperationException;
+import br.com.udemy.exceptions.ResourceNotFoundException;
 import br.com.udemy.math.SimpleMath;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +26,7 @@ public class MathController {
             )throws Exception{
 
         if(!isNumeric(numberOne) || isNumeric(numberTwo)){
-            throw new UnsupportedMatchOperationException("Please set a numeric value !");
+            throw new ResourceNotFoundException("Please set a numeric value !");
         }
         return math.sum(covertToDouble(numberOne), covertToDouble(numberTwo));
     }
@@ -39,7 +39,7 @@ public class MathController {
     )throws Exception{
 
         if(!isNumeric(numberOne) || isNumeric(numberTwo)){
-            throw new UnsupportedMatchOperationException("Please set a numeric value !");
+            throw new ResourceNotFoundException("Please set a numeric value !");
         }
         return math.subtraction(covertToDouble(numberOne), covertToDouble(numberTwo));
     }
@@ -52,7 +52,7 @@ public class MathController {
     )throws Exception{
 
         if(!isNumeric(numberOne) || isNumeric(numberTwo)){
-            throw new UnsupportedMatchOperationException("Please set a numeric value !");
+            throw new ResourceNotFoundException("Please set a numeric value !");
         }
         return math.multiplication(covertToDouble(numberOne), covertToDouble(numberTwo));
     }
@@ -65,7 +65,7 @@ public class MathController {
     )throws Exception{
 
         if(!isNumeric(numberOne) || isNumeric(numberTwo)){
-            throw new UnsupportedMatchOperationException("Please set a numeric value !");
+            throw new ResourceNotFoundException("Please set a numeric value !");
         }
         return math.division(covertToDouble(numberOne), covertToDouble(numberTwo));
     }
@@ -78,7 +78,7 @@ public class MathController {
     )throws Exception{
 
         if(!isNumeric(numberOne) || isNumeric(numberTwo)){
-            throw new UnsupportedMatchOperationException("Please set a numeric value !");
+            throw new ResourceNotFoundException("Please set a numeric value !");
         }
         return math.mean(covertToDouble(numberOne), covertToDouble(numberTwo));
     }
@@ -90,7 +90,7 @@ public class MathController {
     )throws Exception{
 
         if(!isNumeric(number)){
-            throw new UnsupportedMatchOperationException("Please set a numeric value !");
+            throw new ResourceNotFoundException("Please set a numeric value !");
         }
         return math.squareRoot(covertToDouble(number));
     }

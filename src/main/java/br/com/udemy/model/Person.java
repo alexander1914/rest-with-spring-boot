@@ -1,15 +1,27 @@
 package br.com.udemy.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
+//@Entity:  é dizer hibernate que essa classe represent uma tabela do banco
+@Entity
+//@Table: é utilizado para definir nome da tabela
+@Table(name = "person")
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
+    @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
+    @Column(nullable = false, length = 100)
     private String adress;
+    @Column(nullable = false, length = 6)
     private String gender;
 
     public Person() {}
