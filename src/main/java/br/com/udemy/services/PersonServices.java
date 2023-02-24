@@ -1,14 +1,15 @@
 package br.com.udemy.services;
 
 import br.com.udemy.data.vo.PersonVO;
+import br.com.udemy.data.vo.PersonVOV2;
 import br.com.udemy.exceptions.ResourceNotFoundException;
 import br.com.udemy.mapper.DozerMapper;
+import br.com.udemy.mapper.custom.PersonMapper;
 import br.com.udemy.model.Person;
 import br.com.udemy.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -22,12 +23,14 @@ public class PersonServices {
 
     @Autowired
     PersonRepository repository;
+    @Autowired
+    PersonMapper personMapper;
 
-    public PersonVO findById(Long id){
+    public PersonVOV2 findById(Long id){
         logger.info("Finding one person !");
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(("No records found for this ID")));
-        return DozerMapper.parseObject(entity, PersonVO.class);
+        return DozerMapper.parseObject(entity, PersonVOV2.class);
     }
 
     public List<PersonVO>findAll(){
@@ -39,6 +42,13 @@ public class PersonServices {
         logger.info("Creating a person !");
         var entity = DozerMapper.parseObject(person, Person.class);
         var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
+        return vo;
+    }
+
+    public PersonVOV2 createV2(PersonVOV2 person){
+        logger.info("Creating a person !");
+        var entity = personMapper.convertVoToEntity(person);
+        var vo = personMapper.convertEntityToVo(repository.save(entity));
         return vo;
     }
 

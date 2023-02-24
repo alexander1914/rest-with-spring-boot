@@ -1,6 +1,7 @@
 package br.com.udemy.model;
 
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 //@Entity:  é dizer hibernate que essa classe represent uma tabela do banco

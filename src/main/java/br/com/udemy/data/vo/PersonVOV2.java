@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class PersonVO implements Serializable {
+public class PersonVOV2 implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String firstName;
@@ -14,7 +14,7 @@ public class PersonVO implements Serializable {
     private String gender;
     private Date birthDay;
 
-    public PersonVO() {}
+    public PersonVOV2() {}
 
     public Long getId() {
 
@@ -70,7 +70,7 @@ public class PersonVO implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PersonVO that)) return false;
+        if (!(o instanceof PersonVOV2 that)) return false;
         return Objects.equals(getId(),
                 that.getId()) && Objects.equals(getFirstName(),
                 that.getFirstName()) && Objects.equals(getLastName(),
