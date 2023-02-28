@@ -1,16 +1,27 @@
 package br.com.udemy.data.vo;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@JsonPropertyOrder({"id", "address", "first_name", "last_name", "gender"})
+//JsonPropertyOrder: essa anotation server para mudar a order das propriedades
 public class PersonVO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    @JsonProperty("first_name")
+    //@JsonProperty: essa anotation server para definir como você quer fique seu JSON
     private String firstName;
+    @JsonProperty("last_name")
     private String lastName;
-    private String adress;
+    private String address;
+    @JsonIgnore
+    //@JsonIgnore: essa anotation serve para ocultar essa propriedade do JSON
     private String gender;
     private Date birthDay;
 
@@ -43,13 +54,13 @@ public class PersonVO implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAdress() {
+    public String getAddress() {
 
-        return adress;
+        return address;
     }
-    public void setAddress(String adress) {
+    public void setAddress(String address) {
 
-        this.adress = adress;
+        this.address = address;
     }
 
     public String getGender() {
@@ -74,8 +85,8 @@ public class PersonVO implements Serializable {
         return Objects.equals(getId(),
                 that.getId()) && Objects.equals(getFirstName(),
                 that.getFirstName()) && Objects.equals(getLastName(),
-                that.getLastName()) && Objects.equals(getAdress(),
-                that.getAdress()) && Objects.equals(getGender(),
+                that.getLastName()) && Objects.equals(getAddress(),
+                that.getAddress()) && Objects.equals(getGender(),
                 that.getGender()) && Objects.equals(getBirthDay(), that.getBirthDay());
     }
     @Override
@@ -83,7 +94,7 @@ public class PersonVO implements Serializable {
         return Objects.hash(getId(),
                 getFirstName(),
                 getLastName(),
-                getAdress(),
+                getAddress(),
                 getGender(),
                 getBirthDay());
     }
