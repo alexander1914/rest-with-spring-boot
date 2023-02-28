@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/person/v1")
 public class PersonController {
 
     //@Autowired: é para fazer a instaciação de um objeto,
