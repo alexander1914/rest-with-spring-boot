@@ -15,13 +15,13 @@ public class PersonVO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     @JsonProperty("first_name")
-    //@JsonProperty: essa anotation server para definir como você quer fique seu JSON
+    //TODO: @JsonProperty: essa anotation server para definir como você quer fique seu JSON
     private String firstName;
     @JsonProperty("last_name")
     private String lastName;
     private String address;
     @JsonIgnore
-    //@JsonIgnore: essa anotation serve para ocultar essa propriedade do JSON
+    //TODO: @JsonIgnore: essa anotation serve para ocultar essa propriedade do JSON
     private String gender;
     private Date birthDay;
 

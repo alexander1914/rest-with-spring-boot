@@ -12,8 +12,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Date;
 
-//@ControllerAdvice: sempre que agente precisa concertrar algum tratamento,
-//em todos os controllers
+//TODO: @ControllerAdvice: sempre que agente precisa concertrar algum tratamento,
+// em todos os controllers
 
 @ControllerAdvice
 @RestController

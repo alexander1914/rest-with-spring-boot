@@ -15,7 +15,7 @@ public class MathController {
 
     private final SimpleMath math = new SimpleMath();
 
-    //O que é PathVariable: ela usada para recuperar dados do URL,
+    //TODO: O que é PathVariable: ela usada para recuperar dados do URL,
     // permite que nossso controle lido requisicoes personalisadas
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}",

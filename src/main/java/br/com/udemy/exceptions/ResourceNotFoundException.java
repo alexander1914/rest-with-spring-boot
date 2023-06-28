@@ -3,7 +3,7 @@ package br.com.udemy.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-//@ResponseStatus é que codigo de erro, o qual codigo irá retornar codigo do erro
+//TODO: @ResponseStatus: é que codigo de erro, o qual codigo irá retornar codigo do erro
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
